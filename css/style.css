@@ -1,0 +1,170 @@
+/*RESET CSS*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*ESTILIZAÇÃO BODY*/
+body {
+    /*ocupa toda a tela:*/
+    min-height: 100vh;
+
+    /*centralização com flexbox*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(197, 143, 247);
+
+    /*distância da borda*/
+    padding: 10px;
+}
+
+/*CONTAINER PRINCIPAL*/
+.container {
+    max-width: 1090px;
+    width: 100%;
+    display: flex;
+
+    /*permite a quebra de linha*/
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+}
+
+/*ESTILOS DOS CARDS*/
+.container .card {
+    /*largura de 33% da tela menos 20px de margem*/
+    width: calc(33% - 20px);
+
+    background: #fff;
+    text-align: center;
+    padding: 15px 30px 30px 30px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+/*TOPO DOS CARDS*/
+.container .card .top {
+    height: 130px;
+    color: #fff;
+    padding: 12px 0 0 0;
+
+    /*recorte geométrico com clip-path (ajusta cada lado da forma de acordo com o eixo x e y, seguindo a ordem de topo esquerdo, topo direito, baixo direito, baixo esquerdo*/
+    clip-path: polygon(0 0, 100% 0, 100% 53%, 49% 100%, 0 53%);
+}
+
+/*ESTILIZAÇÃO DOS TEXTOS PRESENTES NOS CARDS:*/
+
+/*1. TITULO*/
+.container .card .top .titulo {
+    font-size: 27px;
+    font-weight: 600;
+}
+
+/*2. MARGEM DA SEÇÃO DE PREÇO*/
+.container .card .top .secao-preco {
+    margin-top: -9px;
+}
+
+/*3. PREÇO*/
+.container .card .top .secao-preco .preco {
+    font-size: 45px;
+}
+
+/*4. INFORMAÇÕES*/
+.container .card .info {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/*5. DETALHES*/
+.container .card .detalhes .plano {
+    margin-top: 25px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/*----------------------------------*/
+
+/*LINHA DIVISÓRIA ENTRE CADA DETALHE*/
+.container .card .detalhes .plano::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    left: 0;
+    top: -12px;
+}
+
+/*ESTILIZAÇÃO DOS ÍCONES:*/
+.container .card .plano i {
+    color: green;
+}
+
+.container .card .plano i.fa-xmark {
+    color: red;
+}
+
+/*----------------------------------*/
+
+/*ESTILO DO BOTÃO*/
+.container .card button {
+    outline: none;
+    border: none;
+    height: 42px;
+    display: block;
+    margin-top: 30px;
+    width: 100%;
+    color: #fff;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/*EFEITO AO PASSAR O MOUSE NO BOTÃO*/
+.container .card button:hover {
+    filter: brightness(90%);
+}
+
+/*ESTILIZAÇÃO DO TOP E BOTÃO DE CADA CARD*/
+.container .um .top,
+.container .um button {
+    background-color: rgb(40, 209, 40);
+}
+
+.container .dois .top,
+.container .dois button {
+    background-color: rgb(209, 68, 40);
+}
+
+.container .tres .top,
+.container .tres button {
+    background-color: rgb(21, 21, 212);
+}
+
+/*----------------------------------*/
+
+/*RESPONSIVIDADE:*/
+
+/*1. TELAS ATÉ 1000PX: CARD OCUPA 50% DA TELA*/
+@media (max-width:1000px) {
+    .container .card {
+        width: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
+} 
+
+/*2. TELAS ATÉ 715PX: CARDS OCUPAM 100% DA TELA (FICANDO UM ABAIXO DO OUTRO)*/
+@media (max-width:715px) {
+    .container .card {
+        width: 100%;
+    }
+} 
